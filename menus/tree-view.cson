@@ -21,7 +21,7 @@
 
 'context-menu':
   '.tree-view.full-menu': [
-    {'label': 'New File', 'command': 'tree-view:add-file'}
+    {'label': 'New File', 'command': 'create-files:toggle'}
     {'label': 'New Folder', 'command': 'tree-view:add-folder'}
     {'type': 'separator'}
 
