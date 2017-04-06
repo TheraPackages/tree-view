@@ -659,7 +659,8 @@ class TreeView extends View
         false
       dialog.attach()
     else
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'create-files:toggle', selectedPath)
+      selectDir = path.dirname(selectedPath) + path.sep
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'create-files:toggle', selectDir)
 
   removeProjectFolder: (e) ->
     pathToRemove = $(e.target).closest(".project-root > .header").find(".name").data("path")
