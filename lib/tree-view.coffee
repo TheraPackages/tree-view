@@ -660,7 +660,7 @@ class TreeView extends View
       dialog.attach()
     else
       if fs.isDirectorySync(selectedPath)
-        selectDir = selectedPath
+        selectDir = selectedPath + path.sep
       else
         selectDir = path.dirname(selectedPath) + path.sep
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'create-files:toggle', selectDir)
