@@ -279,7 +279,7 @@ class TreeView extends View
       stats = _.pick stats, _.keys(stats)...
       for key in ["atime", "birthtime", "ctime", "mtime"]
         stats[key] = stats[key].getTime()
-      
+
       directory = new Directory({
         name: path.basename(projectPath)
         fullPath: projectPath
@@ -659,7 +659,10 @@ class TreeView extends View
         false
       dialog.attach()
     else
-      selectDir = path.dirname(selectedPath) + path.sep
+      if fs.isDirectorySync(selectedPath)
+        selectDir = selectedPath
+      else
+        selectDir = path.dirname(selectedPath) + path.sep
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'create-files:toggle', selectDir)
 
   removeProjectFolder: (e) ->
